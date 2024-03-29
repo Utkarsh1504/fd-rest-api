@@ -12,8 +12,6 @@
 - Input validation using zod.
 - Used dummy data for testing using the seed.ts (for seeding)
 
-## Issues:
-- Getting CORS issues while deloying in the production, locally it works fine 
 
 ## Getting Started
 

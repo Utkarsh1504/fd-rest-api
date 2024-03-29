@@ -11,6 +11,10 @@ const options = {
     },
     servers: [
       {
+        url: `https://fd-rest-api.onrender.com`,
+        description: "Production Server",
+      },
+      {
         url: `http://localhost:${PORT}`,
         description: "Development Server",
       },
