@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id       Int       @id @default(autoincrement())
+  name     String
+  pricings Pricing[]
+}
+
+model Item {
+  id          Int       @id @default(autoincrement())
+  type        String
+  description String
+  pricings    Pricing[]
+}
+
+model Pricing {
+  id                  Int          @id @default(autoincrement())
+  organization        Organization @relation(fields: [organization_id], references: [id])
+  organization_id     Int
+  item                Item         @relation(fields: [item_id], references: [id])
+  item_id             Int
+  zone                String
+  base_distance_in_km Int          @default(5)
+  km_price            Float        @default(1.5)
+  fix_price           Float        @default(10)
+}
