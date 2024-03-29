@@ -2,10 +2,12 @@ import express from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocs from "./swagger";
 import pricingRoutes from "./routes/pricingRoutes";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
